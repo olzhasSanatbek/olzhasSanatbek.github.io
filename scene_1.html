@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script>
+      AFRAME.registerComponent('navigate-on-click', {
+        schema: {
+          url: {type: 'string'}
+        },
+        init: function () {
+          var data = this.data;
+          var el = this.el;
+          el.addEventListener('click', function () {
+            window.location.href = data.url;
+          });
+        }
+      });
+    </script>
+  </head>
+  <body>
+
+    <!-- Computer with table -->
+    <a-scene id="scene3" visible="true">
+      <a-entity camera look-controls wasd-controls position="0 1.6 3">
+        <!-- Cursor for mouse and VR controller interactions -->
+        <a-cursor raycaster="objects: .clickable; far: 1"></a-cursor>
+      </a-entity>
+      <a-light type="ambient" color="#fff"></a-light>
+
+        <!-- Table -->
+        <a-box position="0 0.5 -3" depth="1" height="0.1" width="2" color="#8B4513"></a-box>
+        <a-box position="-0.95 0.25 -3" depth="1" height="0.5" width="0.1" color="#8B4513"></a-box>
+        <a-box position="0.95 0.25 -3" depth="1" height="0.5" width="0.1" color="#8B4513"></a-box>
+    
+        <!-- Computer Monitor -->
+        <a-box position="0 1.2 -3" depth="0.1" height="0.6" width="0.8" color="#000"></a-box>
+        <a-box position="0 0.9 -3" depth="0.1" height="0.1" width="0.8" color="#000"></a-box>
+        <a-sound src="url(path/to/your/audiofile.mp3)" autoplay="true" position="0 1.2 -3"></a-sound>
+        <!-- Button on Monitor -->
+        <a-box position="0 1.2 -2.95" depth="0.01" height="0.2" width="0.4" color="#0000FF" navigate-on-click="url: /path/to/your/nextscene.html"></a-box>
+    
+        <!-- Keyboard -->
+        <a-box position="0 0.6 -2.8" depth="0.2" height="0.05" width="0.6" color="#000"></a-box>
+    
+        <!-- Mouse -->
+        <a-sphere position="0.4 0.55 -2.8" radius="0.05" color="#000"></a-sphere>
+    
+        <a-entity camera look-controls wasd-controls position="0 1.6 0">
+        <a-cursor></a-cursor>
+        </a-entity>
+        <a-light type="ambient" color="#fff"></a-light>
+        <a-light type="point" intensity="0.8" position="0 2.5 0"></a-light>
+
+        <!-- Server Rack -->
+        <a-box position="1 1 -4.5" depth="1" height="2" width="1" color="#333"></a-box>
+        <a-box position="1 1.75 -4" depth="0.1" height="0.1" width="0.8" color="#666"></a-box>
+        <a-box position="1 1.5 -4" depth="0.1" height="0.1" width="0.8" color="#666"></a-box>
+        <a-box position="1 1.25 -4" depth="0.1" height="0.1" width="0.8" color="#666"></a-box>
+        <a-box position="1 1 -4" depth="0.1" height="0.1" width="0.8" color="#666"></a-box>
+        <a-box position="1 0.75 -4" depth="0.1" height="0.1" width="0.8" color="#666"></a-box>
+        <a-box position="1 0.5 -4" depth="0.1" height="0.1" width="0.8" color="#666"></a-box>
+        <a-box position="1 0.25 -4" depth="0.1" height="0.1" width="0.8" color="#666"></a-box>
+        <a-box position="1 0 -4" depth="0.1" height="0.1" width="0.8" color="#666"></a-box>
+
+        <a-box class="clickable" color="#8B4513" depth="0.1" height="2" width="1" position="-4.5 1 -3" class="clickable" navigate-on-click="url: museum.html">
+          <a-text value="Main Room" align="center" position="0 1.2 0.1" rotation="0 0 0" color="#000"></a-text>
+        </a-box>
+    </a-scene>
+  </body>
+
+</html>

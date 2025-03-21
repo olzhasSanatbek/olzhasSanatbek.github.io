@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script>
+      AFRAME.registerComponent('navigate-on-click', {
+        schema: {
+          url: {type: 'string'}
+        },
+        init: function () {
+          var data = this.data;
+          var el = this.el;
+          el.addEventListener('click', function () {
+            window.location.href = data.url;
+          });
+        }
+      });
+    </script>
+  </head>
+  <body>
+    <a-scene>
+        <a-assets></a-assets>
+        
+            <a-entity id="teacher" position="0 1.6 -3"></a-entity>
+                <a-box position="0 0.75 0" depth="0.5" height="1.5" width="1" color="#FFC65D"></a-box>
+                <a-sphere position="0 1.75 0" radius="0.5" color="#FF5733"></a-sphere>
+            </a-entity>
+
+            <a-entity id="child1" position="-1 1.6 -3">
+                <a-box position="0 0.5 0" depth="0.4" height="1" width="0.6" color="#4CC3D9"></a-box>
+                <a-sphere position="0 1.25 0" radius="0.3" color="#EF2D5E"></a-sphere>
+            </a-entity>
+
+            <a-entity id="child2" position="1 1.6 -3">
+                <a-box position="0 0.5 0" depth="0.4" height="1" width="0.6" color="#4CC3D9"></a-box>
+                <a-sphere position="0 1.25 0" radius="0.3" color="#EF2D5E"></a-sphere>
+            </a-entity>
+        </a-assets>
+        <a-entity camera look-controls wasd-controls position="0 1.6 3">
+          <!-- Cursor for mouse and VR controller interactions -->
+          <a-cursor raycaster="objects: .clickable; far: 1"></a-cursor>
+        </a-entity>
+
+        <!-- Judge's Bench -->
+    <a-box position="0 1 -5" width="4" height="2" depth="1" color="#8B4513"></a-box>
+    <a-box position="0 2.5 -5" width="4" height="0.5" depth="1" color="#8B4513"></a-box>
+    <a-box position="0 3 -5" width="4" height="0.5" depth="1" color="#8B4513"></a-box>
+
+    <!-- Judge -->
+    <a-entity id="judge" position="0 2 -5">
+        <a-box position="0 0.75 0" depth="0.5" height="1.5" width="1" color="#FFC65D"></a-box>
+        <a-sphere position="0 1.75 0" radius="0.5" color="#FF5733"></a-sphere>
+    </a-entity>
+
+    <!-- Defendant's Table -->
+    <a-box position="-2 0.5 -3" width="2" height="1" depth="1" color="#8B4513"></a-box>
+
+    <!-- Defendant -->
+    <a-entity id="defendant" position="-2 1 -3">
+        <a-box position="0 0.75 0" depth="0.5" height="1.5" width="1" color="#4CC3D9"></a-box>
+        <a-sphere position="0 1.75 0" radius="0.5" color="#EF2D5E"></a-sphere>
+    </a-entity>
+
+    <!-- Plaintiff's Table -->
+    <a-box position="2 0.5 -3" width="2" height="1" depth="1" color="#8B4513"></a-box>
+
+    <!-- Plaintiff -->
+    <a-entity id="plaintiff" position="2 1 -3">
+        <a-box position="0 0.75 0" depth="0.5" height="1.5" width="1" color="#4CC3D9"></a-box>
+        <a-sphere position="0 1.75 0" radius="0.5" color="#EF2D5E"></a-sphere>
+    </a-entity>
+        <!-- Audience Benches -->
+    <a-box position="-4 0.5 -1" width="2" height="1" depth="1" color="#8B4513"></a-box>
+    <a-box position="4 0.5 -1" width="2" height="1" depth="1" color="#8B4513"></a-box>
+    <a-box position="-4 0.5 1" width="2" height="1" depth="1" color="#8B4513"></a-box>
+    <a-box position="4 0.5 1" width="2" height="1" depth="1" color="#8B4513"></a-box>
+
+    <!-- Audience Members -->
+    <a-entity id="audience1" position="-4 1 -1">
+        <a-box position="0 0.75 0" depth="0.5" height="1.5" width="1" color="#4CC3D9"></a-box>
+        <a-sphere position="0 1.75 0" radius="0.5" color="#EF2D5E"></a-sphere>
+    </a-entity>
+    <a-entity id="audience2" position="4 1 -1">
+        <a-box position="0 0.75 0" depth="0.5" height="1.5" width="1" color="#4CC3D9"></a-box>
+        <a-sphere position="0 1.75 0" radius="0.5" color="#EF2D5E"></a-sphere>
+    </a-entity>
+    <a-entity id="audience3" position="-4 1 1">
+        <a-box position="0 0.75 0" depth="0.5" height="1.5" width="1" color="#4CC3D9"></a-box>
+        <a-sphere position="0 1.75 0" radius="0.5" color="#EF2D5E"></a-sphere>
+    </a-entity>
+    <a-entity id="audience4" position="4 1 1">
+        <a-box position="0 0.75 0" depth="0.5" height="1.5" width="1" color="#4CC3D9"></a-box>
+        <a-sphere position="0 1.75 0" radius="0.5" color="#EF2D5E"></a-sphere>
+    </a-entity>
+
+        <!-- Floor -->
+    <a-plane position="0 0 -4" rotation="-90 0 0" width="10" height="10" color="#7BC8A4"></a-plane>
+      </a-scene>
+  </body>
+
+</html>
