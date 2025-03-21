@@ -18,17 +18,16 @@
     </script>
   </head>
   <body>
-    <a-scene>
+    
       <a-assets>
         <audio id="bell" src="path/to/school_bell.mp3"></audio>
     </a-assets>
     
     <a-scene>
-      <a-entity camera look-controls wasd-controls position="0 1.6 3">
-        <!-- Cursor for mouse and VR controller interactions -->
-        <a-cursor raycaster="objects: .clickable; far: 1"></a-cursor>
-      </a-entity>
-    
+        <a-entity camera look-controls wasd-controls position="0 1.6 3">
+            <!-- Cursor for mouse and VR controller interactions -->
+            <a-cursor raycaster="objects: .clickable; far: 1"></a-cursor>
+        </a-entity>
         <a-entity position="0 1.6 -3">
             <a-text value="Учитель русского языка" color="#000" align="center"></a-text>
         </a-entity>
